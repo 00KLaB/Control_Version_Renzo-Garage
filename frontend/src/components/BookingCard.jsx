@@ -448,7 +448,7 @@ onChange={(e) =>
         <Button /* BTN pdf*/
           onClick={() =>
             window.open(
-              `https://five0-50-renzo-garage-zrl9.onrender.com/api/reports/booking/${booking.id}`
+              `https://five0-50-renzo-garage.onrender.com/api/reports/booking/${booking.id}`
             )
           }
         >
