@@ -5,7 +5,7 @@ const cors = require("cors");
 const { fill } = require("pdfkit");
 
 app.use(cors({
-  origin: "https://garage-renzo-1.onrender.com",
+  origin: "https://five0-50-renzo-garage-zrl9.onrender.com",
   credentials: true
 }));
 
