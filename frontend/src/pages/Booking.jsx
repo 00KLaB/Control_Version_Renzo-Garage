@@ -106,14 +106,16 @@ export default function Booking() {
           value={form.customer_id}
           onChange={handleChange}
           className="
-            flex-1
-            bg-zinc-900
-            border
-            border-zinc-700
-            rounded-xl
-            px-4
-            py-3
-            text-white
+            bg-blue-100
+        border
+        border-zinc-700
+        rounded-xl
+        px-4
+        py-3
+        text-black
+        outline-none
+        focus:border-blue-500
+        placeholder:text-black
           "
           required
         >
@@ -136,14 +138,16 @@ export default function Booking() {
           value={form.vehicle_id}
           onChange={handleChange}
           className="
-            flex-1
-            bg-zinc-900
-            border
-            border-zinc-700
-            rounded-xl
-            px-4
-            py-3
-            text-white
+            bg-blue-100
+        border
+        border-zinc-700
+        rounded-xl
+        px-4
+        py-3
+        text-black
+        outline-none
+        focus:border-blue-500
+        placeholder:text-black
           "
           required
         >
@@ -161,58 +165,28 @@ export default function Booking() {
           ))}
         </select>
 
-        <input
+        <Input
           type="text"
           name="service"
           placeholder="Serviço"
           value={form.service}
           onChange={handleChange}
-          className="
-            flex-1
-            bg-zinc-900
-            border
-            border-zinc-700
-            rounded-xl
-            px-4
-            py-3
-            text-white
-          "
           required
         />
 
-        <input
+        <Input
           type="date"
           name="booking_date"
           value={form.booking_date}
           onChange={handleChange}
-          className="
-            flex-1
-            bg-zinc-900
-            border
-            border-zinc-700
-            rounded-xl
-            px-4
-            py-3
-            text-white
-          "
           required
         />
 
-        <input
+        <Input
           type="time"
           name="booking_time"
           value={form.booking_time}
           onChange={handleChange}
-          className="
-            flex-1
-            bg-zinc-900
-            border
-            border-zinc-700
-            rounded-xl
-            px-4
-            py-3
-            text-white
-          "
           required
         />
 
@@ -221,14 +195,16 @@ export default function Booking() {
           placeholder="Notas"
           value={form.notes}
           className="
-            flex-1
-            bg-zinc-900
-            border
-            border-zinc-700
-            rounded-xl
-            px-4
-            py-3
-            text-white
+            bg-blue-100
+        border
+        border-zinc-700
+        rounded-xl
+        px-4
+        py-3
+        text-black
+        outline-none
+        focus:border-blue-500
+        placeholder:text-black
           "
           onChange={handleChange}
         />
@@ -241,7 +217,7 @@ export default function Booking() {
           onChange={handleChange}
         />
 
-        <Button type="submit">
+        <Button type="submit" variant="success">
           Criar Reserva
         </Button>
 

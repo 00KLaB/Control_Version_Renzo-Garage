@@ -1,5 +1,6 @@
 import api from "../api/axios";
 import { useState } from "react";
+import Input from "../components/Input";
 import Button from "./Button";
 
 export default function BookingCard({
@@ -181,7 +182,7 @@ setEditing(false);
 
   <div className="space-y-4">
 
-    <input
+    <Input
       type="date"
       value={
   formData.booking_date
@@ -194,18 +195,10 @@ onChange={(e) =>
       e.target.value,
   })
 }
-      className="
-        w-full
-        bg-zinc-800
-        border
-        border-zinc-700
-        rounded-xl
-        p-3
-        text-white
-      "
+      
     />
 
-    <input
+    <Input
       type="time"
       value={
   formData.booking_time
@@ -218,15 +211,7 @@ onChange={(e) =>
       e.target.value,
   })
 }
-      className="
-        w-full
-        bg-zinc-800
-        border
-        border-zinc-700
-        rounded-xl
-        p-3
-        text-white
-      "
+      
     />
 
   </div>
@@ -279,7 +264,7 @@ onChange={(e) =>
 
   {editing ? (
 
-    <input
+    <Input
       value={formData.service}
       onChange={(e) =>
         setFormData({
@@ -288,15 +273,7 @@ onChange={(e) =>
             e.target.value,
         })
       }
-      className="
-        w-full
-        bg-zinc-800
-        border
-        border-zinc-700
-        rounded-xl
-        p-3
-        text-white
-      "
+ 
     />
 
   ) : (
@@ -330,12 +307,16 @@ onChange={(e) =>
       }
       className="
         w-full
-        bg-zinc-800
+        bg-blue-100
         border
         border-zinc-700
         rounded-xl
-        p-3
-        text-white
+        px-4
+        py-3
+        text-black
+        outline-none
+        focus:border-blue-500
+        placeholder:text-black
       "
     />
 
@@ -358,7 +339,7 @@ onChange={(e) =>
 
   {editing ? (
 
-    <input
+    <Input
       type="number"
       value={
         formData.service_price
@@ -370,15 +351,6 @@ onChange={(e) =>
             e.target.value,
         })
       }
-      className="
-        w-full
-        bg-zinc-800
-        border
-        border-zinc-700
-        rounded-xl
-        p-3
-        text-white
-      "
     />
 
   ) : (
@@ -409,30 +381,41 @@ onChange={(e) =>
         {editing ? (
 
   <>
+  {/* btn guardar */}
     <Button
+    variant="success"
       onClick={saveBooking}
     >
-      Guardar
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
+  <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5z"/>
+  <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0"/>
+</svg>
     </Button>
 
+
+    {/* btn cancelar edicao */}
     <Button
-      variant="secondary"
+      variant="danger"
       onClick={() =>
         setEditing(false)
       }
     >
-      Cancelar
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
+  <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+</svg>
     </Button>
+    
   </>
 
-) : 
+) : (
 
-/* BTN EDITAR*/
+/* BTN COMECAR EDITAR*/
 
-(
 
   
   <Button
+    variant="primary"
     onClick={() =>
       setEditing(true)
     }
@@ -442,10 +425,12 @@ onChange={(e) =>
   <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
 </svg>
   </Button>
+  
 
-)}
+)}|
         
         <Button /* BTN pdf*/
+          variant="secundary"
           onClick={() =>
             window.open(
               `https://five0-50-renzo-garage.onrender.com/api/reports/booking/${booking.id}`
@@ -458,7 +443,7 @@ onChange={(e) =>
         </Button>
 
         <Button
-          variant="danger"
+          variant="darkDanger"
           onClick={() =>
             onDelete(booking.id)
           }

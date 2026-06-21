@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import api from "../api/axios";
 
+import Input from "../components/Input";
 import Button from "../components/Button";
 import DataTable from "../components/DataTable";
 import PageHeader from "../components/PageHeader";
@@ -73,7 +74,7 @@ export default function Customers() {
     <div>
 
       <PageHeader title="Clientes" />
-
+<br></br>
       <form
         onSubmit={handleSubmit}
         style={{
@@ -84,64 +85,38 @@ export default function Customers() {
         }}
       >
 
-        <input
+        <Input
           type="text"
           name="name"
           placeholder="Nome"
           value={form.name}
           onChange={handleChange}
-          className="
-            bg-zinc-900
-            border
-            border-zinc-700
-            rounded-xl
-            px-4
-            py-3
-            text-white
-          "
           required
         />
 
-        <input
+        <Input
           type="text"
           name="phone"
           placeholder="Telefone"
           value={form.phone}
           onChange={handleChange}
-          className="
-            bg-zinc-900
-            border
-            border-zinc-700
-            rounded-xl
-            px-4
-            py-3
-            text-white
-          "
+          required
         />
 
-        <input
+        <Input
           type="email"
           name="email"
           placeholder="Email"
           value={form.email}
           onChange={handleChange}
-          className="
-            bg-zinc-900
-            border
-            border-zinc-700
-            rounded-xl
-            px-4
-            py-3
-            text-white
-          "
         />
 
-        <Button type="submit">
+        <Button type="submit" variant="success">
           Criar Cliente
         </Button>
 
       </form>
-
+<br></br>
       <DataTable
         columns={[
           "Nome",
@@ -153,11 +128,12 @@ export default function Customers() {
 
         renderActions={(row) => (
           <Button
+            variant="darkDanger"
             onClick={() =>
               deleteCustomer(row.id)
             }
           >
-            Apagar
+            Eliminar
           </Button>
         )}
       />

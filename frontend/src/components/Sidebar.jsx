@@ -4,24 +4,24 @@ export default function Sidebar() {
 
   const menu = [
     {
-      name: "Dashboard",
-      path: "/dashboard",
-    },
-    {
-      name: "Reservas",
-      path: "/bookings",
-    },
-    {
-      name: "Nova Reserva",
-      path: "/booking",
-    },
-    {
       name: "Clientes",
       path: "/customers",
     },
     {
       name: "Veículos",
       path: "/vehicles",
+    },
+    {
+      name: "Nova Reserva",
+      path: "/booking",
+    },
+    {
+      name: "Reservas",
+      path: "/bookings",
+    },
+    {
+      name: "Dashboard",
+      path: "/dashboard",
     },
   ];
 
@@ -44,7 +44,7 @@ export default function Sidebar() {
           text-blue-500
         "
       >
-        Garage System 🚗
+      🛠 Oficina 50/50 🛠
       </h1>
 
       <div className="flex flex-col gap-3">
@@ -55,7 +55,8 @@ export default function Sidebar() {
             to={item.path}
             className="
               bg-zinc-800
-              hover:bg-blue-600
+              hover:bg-blue-100
+              hover:text-black
               transition
               p-3
               rounded-lg

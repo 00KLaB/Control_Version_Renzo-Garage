@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import api from "../api/axios";
-
+import Input from "../components/Input";
 import Button from "../components/Button";
 import DataTable from "../components/DataTable";
 import PageHeader from "../components/PageHeader";
@@ -100,6 +100,8 @@ export default function Vehicles() {
 
       <PageHeader title="Veículos" />
 
+<br></br>
+
       <form
         onSubmit={handleSubmit}
         style={{
@@ -115,14 +117,16 @@ export default function Vehicles() {
           value={form.customer_id}
           onChange={handleChange}
           className="
-            bg-zinc-900
-            border
-            border-zinc-700
-            rounded-xl
-            px-4
-            py-3
-            mx-8
-            text-white
+            bg-blue-100
+        border
+        border-zinc-700
+        rounded-xl
+        px-4
+        py-3
+        text-black
+        outline-none
+        focus:border-blue-500
+        placeholder:text-black
           "
           required
         >
@@ -140,122 +144,64 @@ export default function Vehicles() {
           ))}
         </select>
 
-        <input
+        <Input
           type="text"
           name="brand"
           placeholder="Marca"
           value={form.brand}
           onChange={handleChange}
-          className="
-            bg-zinc-900
-            border
-            border-zinc-700
-            rounded-xl
-            px-4
-            py-3
-            mx-8
-            text-white
-          "
           required
         />
 
-        <input
+        <Input
           type="text"
           name="model"
           placeholder="Modelo"
           value={form.model}
           onChange={handleChange}
-          className="
-            bg-zinc-900
-            border
-            border-zinc-700
-            rounded-xl
-            px-4
-            py-3
-            mx-8
-            text-white
-          "
           required
         />
 
-        <input
+        <Input
           type="text"
           name="plate"
           placeholder="Matrícula"
           value={form.plate}
           onChange={handleChange}
-          className="
-            bg-zinc-900
-            border
-            border-zinc-700
-            rounded-xl
-            px-4
-            py-3
-            mx-8
-            text-white
-          "
           required
         />
 
-        <input
+        <Input
           type="number"
           name="year"
           placeholder="Ano"
           value={form.year}
           onChange={handleChange}
-          className="
-            bg-zinc-900
-            border
-            border-zinc-700
-            rounded-xl
-            px-4
-            py-3
-            mx-8
-            text-white
-          "
         />
 
-        <input
+        <Input
           type="number"
           name="mileage"
           placeholder="KM"
           value={form.mileage}
           onChange={handleChange}
-          className="
-            bg-zinc-900
-            border
-            border-zinc-700
-            rounded-xl
-            px-4
-            py-3
-            mx-8
-            text-white
-          "
         />
 
-        <input
+        <Input
           type="text"
           name="fuel"
           placeholder="Combustível"
           value={form.fuel}
           onChange={handleChange}
-          className="
-            bg-zinc-900
-            border
-            border-zinc-700
-            rounded-xl
-            px-4
-            py-3
-            mx-8
-            text-white
-          "
         />
 
-        <Button type="submit">
+        <Button type="submit" variant="success">
           Adicionar Veículo
-        </Button>
+        </Button>        
 
       </form>
+
+<br></br>
 
       <DataTable
         columns={[
@@ -272,11 +218,12 @@ export default function Vehicles() {
 
         renderActions={(row) => (
           <Button
+            variant="darkDanger"
             onClick={() =>
               deleteVehicle(row.id)
             }
           >
-            Apagar
+            Eliminar
           </Button>
         )}
       />

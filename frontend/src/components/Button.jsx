@@ -11,9 +11,15 @@ export default function Button({
 
     danger:
       "bg-red-600 hover:bg-red-700",
+    
+    darkDanger:
+      "bg-red-900 hover:bg-red-500",
 
     success:
       "bg-green-600 hover:bg-green-700",
+
+    secundary:
+      "bg-gray-600 hover:bg-gray-700",
   };
 
   return (
