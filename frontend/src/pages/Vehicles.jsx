@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import api from "../api/axios";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import PlateInput from "../components/PlateInput";
 import DataTable from "../components/DataTable";
 import PageHeader from "../components/PageHeader";
 
@@ -46,23 +47,26 @@ export default function Vehicles() {
     });
   };
 
+  
+
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    await api.post("/vehicles", form);
 
-    setForm({
-      customer_id: "",
-      brand: "",
-      model: "",
-      plate: "",
-      year: "",
-      mileage: "",
-      fuel: "",
-    });
+  await api.post("/vehicles", form);
 
-    loadVehicles();
-  };
+  setForm({
+    customer_id: "",
+    brand: "",
+    model: "",
+    plate: "",
+    year: "",
+    mileage: "",
+    fuel: "",
+  });
+
+  loadVehicles();
+};
 
   const deleteVehicle = async (id) => {
     if (!window.confirm("Apagar veículo?")) {
@@ -162,13 +166,14 @@ export default function Vehicles() {
           required
         />
 
-        <Input
-          type="text"
-          name="plate"
-          placeholder="Matrícula"
+        <PlateInput
           value={form.plate}
-          onChange={handleChange}
-          required
+          onChange={(plate) =>
+            setForm({
+              ...form,
+              plate,
+            })
+          }
         />
 
         <Input
