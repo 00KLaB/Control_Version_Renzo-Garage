@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 import api from "../api/axios";
 
@@ -26,6 +27,9 @@ export default function Bookings() {
 
 };
 
+const [searchParams] =
+  useSearchParams();
+
   const [search, setSearch] = useState("");
 
   const [statusFilter, setStatusFilter] =
@@ -34,6 +38,17 @@ export default function Bookings() {
   useEffect(() => {
     loadBookings();
   }, []);
+
+  useEffect(() => {
+
+  const plate =
+    searchParams.get("plate");
+
+  if (plate) {
+    setSearch(plate);
+  }
+
+}, [searchParams]);
 
   const loadBookings = async () => {
     try {

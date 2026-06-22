@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import api from "../api/axios";
 import Input from "../components/Input";
@@ -89,7 +90,19 @@ export default function Vehicles() {
 
       Modelo: vehicle.model,
 
-      Matrícula: vehicle.plate,
+      Matrícula: (
+  <Link
+    to={`/bookings?plate=${vehicle.plate}`}
+    className="
+      text-blue-400
+      hover:text-blue-300
+      hover:underline
+      font-medium
+    "
+  >
+    {vehicle.plate}
+  </Link>
+),
 
       Ano: vehicle.year,
 
