@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://five0-50-renzo-garage.onrender.com/api",
 });
 
 export default api;
