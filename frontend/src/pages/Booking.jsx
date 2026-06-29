@@ -66,6 +66,9 @@ export default function Booking() {
       vehicle_id: "",
     });
   }
+
+  
+
 };
 
   const handleSubmit = async (e) => {
@@ -164,21 +167,68 @@ export default function Booking() {
             </option>
           ))}
         </select>
+<br></br>
+        <select
+          name="regular_service"
+          onChange={(e) =>
+          setForm({
+            ...form,
+            service:
+              e.target.value,
+          })
+        }
+        className="bg-blue-100
+              border
+              border-zinc-700
+              rounded-xl
+              px-4
+              py-3
+              text-black
+              outline-none
+              focus:border-blue-500
+              placeholder:text-black"
+      >
+        <option value="">
+          Selecionar Serviço Regular
+        </option>
+
+        <option>
+         Substituição de óleo, filtros
+       </option>
+
+       <option>
+         Substituição de velas
+       </option>
+
+       <option>
+          Substituição das pastilhas dos travões
+        </option>
+
+        <option>
+          Substituição dos rolamentos
+        </option>
+
+      </select>  
 
         <Input
           type="text"
           name="service"
-          placeholder="Serviço"
+          placeholder="Tipo De Serviço"
           value={form.service}
           onChange={handleChange}
           required
         />
-
+<br></br>
         <Input
           type="date"
           name="booking_date"
           value={form.booking_date}
           onChange={handleChange}
+          min={
+            new Date()
+            .toISOString()
+            .split("T")[0]
+          }
           required
         />
 
@@ -189,7 +239,7 @@ export default function Booking() {
           onChange={handleChange}
           required
         />
-
+<br></br>
         <textarea
           name="notes"
           placeholder="Notas"
@@ -216,10 +266,28 @@ export default function Booking() {
           value={form.service_price}
           onChange={handleChange}
         />
-
+<br></br><hr></hr>
         <Button type="submit" variant="success">
           Criar Reserva
         </Button>
+        <Button
+  type="button"
+  variant="secundary"
+  onClick={() =>
+    setForm({
+      customer_id: "",
+      vehicle_id: "",
+      regular_service: "",
+      service: "",
+      booking_date: "",
+      booking_time: "",
+      notes: "",
+      service_price: "",
+    })
+  }
+>
+  Limpar
+</Button>
 
       </form>
 
